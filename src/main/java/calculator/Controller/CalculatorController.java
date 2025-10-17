@@ -5,15 +5,17 @@ import calculator.View.UserView;
 
 public class CalculatorController {
     UserView userView;
+    CalculatorService calculatorService;
 
-    public CalculatorController(UserView userView) {
+    public CalculatorController(UserView userView, CalculatorService calculatorService) {
         this.userView = userView;
+        this.calculatorService = calculatorService;
     }
     public void run(){
         try{
-        String InStr = userView.readUserInput();
-
-    }  catch (Exception e){
+            String InStr = userView.readUserInput();
+            String result = calculatorService.calculate(InStr);
+        }  catch (Exception e){
             userView.printError(e.getMessage());
         }
     }
