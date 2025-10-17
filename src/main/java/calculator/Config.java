@@ -5,7 +5,7 @@ import calculator.Service.CalculatorService;
 import calculator.Service.ValidatorService;
 import calculator.View.UserView;
 
-public class config {
+public class Config {
 
     public CalculatorController calculatorController(){
         return new CalculatorController(userview(),calculatorService());
