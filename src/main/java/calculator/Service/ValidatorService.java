@@ -10,6 +10,10 @@ public class ValidatorService {
         if(!str.strip().equals(str)){
             throw new IllegalArgumentException("공백을 포함하고 있습니다.");
         }
+        String[] tokens = str.split(" ");
+        if(tokens.length != 1){
+            throw new IllegalArgumentException("공백을 포함하고 있습니다.");
+        }
     }
 
 }
