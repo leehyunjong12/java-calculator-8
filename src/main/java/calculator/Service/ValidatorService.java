@@ -64,4 +64,16 @@ public class ValidatorService {
         }
     }
 
+    public void validateNumArray(double[] arr) {
+        validatePositiveInArray(arr);
+    }
+
+    private void validatePositiveInArray(double[] arr) {
+        for (double s : arr) {
+            if (s <= 0) {
+                throw new IllegalArgumentException("양수가 아닌 값을 입력하였습니다.");
+            }
+        }
+    }
+
 }

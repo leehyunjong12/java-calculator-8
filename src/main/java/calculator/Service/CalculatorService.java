@@ -30,7 +30,7 @@ public class CalculatorService {
         String[] splitString = splitterService.splitByDelimiters(numbersPart);
         validatorService.validateStringArray(splitString);
         double[] splitDouble = numberConverterService.convertToNumberArray(splitString);
-
+        validatorService.validateNumArray(splitDouble);
         return null;
 
     }

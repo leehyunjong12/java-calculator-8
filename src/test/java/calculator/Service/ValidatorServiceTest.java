@@ -83,4 +83,12 @@ public class ValidatorServiceTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("숫자가 아닌 값을 입력하셨습니다.");
     }
+    @Test
+    @DisplayName("숫자 배열에 양수가 아닌 것이 있으면 예외")
+    void validatePositiveInArray(){
+        double[] input = {1.2, 3.4, -1,2};
+        Assertions.assertThatThrownBy(() -> validatorService.validateNumArray(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("양수가 아닌 값을 입력하였습니다.");
+    }
 }
