@@ -2,10 +2,7 @@ package calculator;
 
 import calculator.Controller.CalculatorController;
 import calculator.Model.DelimiterModel;
-import calculator.Service.CalculatorService;
-import calculator.Service.DelimiterService;
-import calculator.Service.SplitterService;
-import calculator.Service.ValidatorService;
+import calculator.Service.*;
 import calculator.View.UserView;
 
 public class Config {
@@ -21,7 +18,8 @@ public class Config {
     }
 
     public CalculatorService calculatorService() {
-        return new CalculatorService(validatorService(), delimiterService(), splitterService());
+        return new CalculatorService(validatorService(), delimiterService()
+                , splitterService(),numberConverterService());
     }
 
     public ValidatorService validatorService() {
@@ -34,5 +32,8 @@ public class Config {
 
     public SplitterService splitterService() {
         return new SplitterService(delimiterModel);
+    }
+    public NumberConverterService numberConverterService() {
+        return new NumberConverterService();
     }
 }

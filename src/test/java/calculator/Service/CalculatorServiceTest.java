@@ -12,6 +12,7 @@ public class CalculatorServiceTest {
     DelimiterService delimiterService;
     SplitterService splitterService;
     DelimiterModel delimiterModel;
+    NumberConverterService numberConverterService;
 
     @BeforeEach
     void setUp() {
@@ -19,7 +20,9 @@ public class CalculatorServiceTest {
         delimiterModel = new DelimiterModel();
         delimiterService = new DelimiterService(delimiterModel);
         splitterService = new SplitterService(delimiterModel);
-        calculatorService = new CalculatorService(validatorService, delimiterService, splitterService);
+        numberConverterService = new NumberConverterService();
+        calculatorService = new CalculatorService(validatorService, delimiterService
+                , splitterService,numberConverterService);
     }
 
     @Test

@@ -6,11 +6,13 @@ public class CalculatorService {
     ValidatorService validatorService;
     DelimiterService delimiterService;
     SplitterService splitterService;
-
-    public CalculatorService(ValidatorService validatorService, DelimiterService delimiterService, SplitterService splitterService) {
+    NumberConverterService numberConverterService;
+    public CalculatorService(ValidatorService validatorService, DelimiterService delimiterService
+            , SplitterService splitterService, NumberConverterService numberConverterService) {
         this.validatorService = validatorService;
         this.delimiterService = delimiterService;
         this.splitterService = splitterService;
+        this.numberConverterService = numberConverterService;
     }
 
     public String calculate(String str) {
@@ -27,6 +29,9 @@ public class CalculatorService {
         }
         String[] splitString = splitterService.splitByDelimiters(numbersPart);
         validatorService.validateArray(splitString);
+        double[] splitDouble = numberConverterService.convertToNumberArray(splitString);
+
         return null;
+
     }
 }
