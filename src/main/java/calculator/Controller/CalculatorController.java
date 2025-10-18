@@ -16,6 +16,7 @@ public class CalculatorController {
         try {
             String InStr = userView.readUserInput();
             int result = calculatorService.calculate(InStr);
+            userView.displayResult(result);
         } catch (Exception e) {
             userView.printError(e.getMessage());
         }

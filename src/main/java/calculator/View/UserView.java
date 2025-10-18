@@ -9,5 +9,7 @@ public class UserView {
     public void printError(String message) {
         System.out.println("[ERROR] " + message);
     }
-
+    public void displayResult(int result){
+        System.out.println("결과 : "+result);
+    }
 }
