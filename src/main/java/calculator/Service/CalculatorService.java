@@ -16,7 +16,7 @@ public class CalculatorService {
             return "0";
         }
         String numbersPart;
-        if (str.startsWith("//") && str.contains("\n")) {
+        if (str.startsWith("//") && str.contains("\\n")) {
             validatorService.validate(str, true);
             numbersPart = delimiterService.extractAndAddCustomDelimiter(str);
         } else {

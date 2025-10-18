@@ -22,7 +22,7 @@ public class ValidatorService {
     }
 
     public void validateWithCustomDelimiter(String str) {
-        int suffixIndex = str.indexOf("\n");
+        int suffixIndex = str.indexOf("\\n");
         String customDelimiter = str.substring(2, suffixIndex);
         if (customDelimiter.length() != 1) {
             throw new IllegalArgumentException("커스텀 구분자 크기가 1이 아닙니다.");

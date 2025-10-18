@@ -11,9 +11,9 @@ public class DelimiterService {
     }
 
     public String extractAndAddCustomDelimiter(String str) {
-        String CustomDelimiter = str.substring(2, 3);
-        delimiterModel.addCustomDelimiter(CustomDelimiter);
-        return str.substring(4);
+        String customDelimiter = str.substring(2, 3);
+        delimiterModel.addCustomDelimiter(customDelimiter);
+        return str.substring(5);
     }
 
 }
