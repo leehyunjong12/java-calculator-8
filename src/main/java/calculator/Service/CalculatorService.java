@@ -16,6 +16,7 @@ public class CalculatorService {
         if (str.startsWith("//") && str.contains("\n")) {
             validatorService.validate(str,true);
         }
+        validatorService.validate(str,false);
         return null;
     }
 }

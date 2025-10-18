@@ -57,4 +57,13 @@ public class ValidatorServiceTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("커스텀 구분자는 숫자가 될 수 없습니다.");
     }
+    @Test
+    @DisplayName("커스텀 구분자가 없을때, 숫자로 시작하지 않으면 예외")
+    void validateWithoutCustomDelimiter(){
+        String input = "$3$4$5$";
+        Assertions.assertThatThrownBy(() -> validatorService.validateWithoutCustomDelimiter(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("입력은 숫자로 시작해야 합니다.");
+    }
+
 }

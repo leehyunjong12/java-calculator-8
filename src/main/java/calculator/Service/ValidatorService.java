@@ -5,6 +5,8 @@ public class ValidatorService {
         validateBlank(str);
         if(hasCustomDelimiter){
             validateWithCustomDelimiter(str);
+        }else{
+            validateWithoutCustomDelimiter(str);
         }
     }
     public void validateBlank(String str){
@@ -26,6 +28,11 @@ public class ValidatorService {
         }
         if(Character.isDigit(customDelimiter.charAt(0))){
             throw new IllegalArgumentException("커스텀 구분자는 숫자가 될 수 없습니다.");
+        }
+    }
+    public void validateWithoutCustomDelimiter(String str){
+        if(!Character.isDigit(str.charAt(0))){
+            throw new IllegalArgumentException("입력은 숫자로 시작해야 합니다.");
         }
     }
 
