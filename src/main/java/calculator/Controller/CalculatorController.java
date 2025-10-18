@@ -11,11 +11,12 @@ public class CalculatorController {
         this.userView = userView;
         this.calculatorService = calculatorService;
     }
-    public void run(){
-        try{
+
+    public void run() {
+        try {
             String InStr = userView.readUserInput();
             String result = calculatorService.calculate(InStr);
-        }  catch (Exception e){
+        } catch (Exception e) {
             userView.printError(e.getMessage());
         }
     }

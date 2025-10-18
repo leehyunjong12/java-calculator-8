@@ -9,14 +9,14 @@ public class CalculatorService {
         this.validatorService = validatorService;
     }
 
-    public String calculate(String str){
-        if(str.isEmpty()){
+    public String calculate(String str) {
+        if (str.isEmpty()) {
             return "0";
         }
         if (str.startsWith("//") && str.contains("\n")) {
-            validatorService.validate(str,true);
+            validatorService.validate(str, true);
         }
-        validatorService.validate(str,false);
+        validatorService.validate(str, false);
         return null;
     }
 }

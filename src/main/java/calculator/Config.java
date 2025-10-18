@@ -7,16 +7,19 @@ import calculator.View.UserView;
 
 public class Config {
 
-    public CalculatorController calculatorController(){
-        return new CalculatorController(userview(),calculatorService());
+    public CalculatorController calculatorController() {
+        return new CalculatorController(userview(), calculatorService());
     }
-    public UserView userview(){
+
+    public UserView userview() {
         return new UserView();
     }
-    public CalculatorService calculatorService(){
+
+    public CalculatorService calculatorService() {
         return new CalculatorService(validatorService());
     }
-    public ValidatorService validatorService(){
+
+    public ValidatorService validatorService() {
         return new ValidatorService();
     }
 }
