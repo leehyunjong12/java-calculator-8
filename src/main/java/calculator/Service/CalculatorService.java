@@ -1,8 +1,6 @@
 package calculator.Service;
 
 
-import java.util.List;
-
 // 전체 흐름 조합 (Facade 역할)
 public class CalculatorService {
     ValidatorService validatorService;
@@ -28,6 +26,7 @@ public class CalculatorService {
             numbersPart = str;
         }
         String[] splitString = splitterService.splitByDelimiters(numbersPart);
+        validatorService.validateArray(splitString);
         return null;
     }
 }

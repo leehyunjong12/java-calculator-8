@@ -67,5 +67,12 @@ public class ValidatorServiceTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("입력은 숫자로 시작해야 합니다.");
     }
-
+    @Test
+    @DisplayName("분리한 문자열에 비어있는게 있으면 예외")
+    void validateBlankInArray(){
+        String[] splitInput = {"4", "6", "8","", "10", "4"};
+        Assertions.assertThatThrownBy(() -> validatorService.validateArray(splitInput))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("비어있는 문자열이 있습니다.");
+    }
 }

@@ -40,6 +40,15 @@ public class ValidatorService {
             throw new IllegalArgumentException("입력은 숫자로 시작해야 합니다.");
         }
     }
-
+    public void validateArray(String[] arr){
+        validateBlankInArray(arr);
+    }
+    private void validateBlankInArray(String[] arr) {
+        for (String s : arr) {
+            if (s.isEmpty()) {
+                throw new IllegalArgumentException("비어있는 문자열이 있습니다.");
+            }
+        }
+    }
 
 }
