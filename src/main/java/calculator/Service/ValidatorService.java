@@ -1,7 +1,7 @@
 package calculator.Service;
 
 public class ValidatorService {
-    public void validate(String str, Boolean hasCustomDelimiter) {
+    public void validateInput(String str, Boolean hasCustomDelimiter) {
         validateBlank(str);
         if (hasCustomDelimiter) {
             validateWithCustomDelimiter(str);
@@ -10,7 +10,7 @@ public class ValidatorService {
         }
     }
 
-    public void validateBlank(String str) {
+    private void validateBlank(String str) {
         String stripped = str.strip();
         if (!stripped.equals(str)) {
             throw new IllegalArgumentException("공백을 포함하고 있습니다.");
@@ -21,7 +21,7 @@ public class ValidatorService {
         }
     }
 
-    public void validateWithCustomDelimiter(String str) {
+    private void validateWithCustomDelimiter(String str) {
         int suffixIndex = str.indexOf("\\n");
         String customDelimiter = str.substring(2, suffixIndex);
         if (customDelimiter.length() != 1) {
@@ -35,7 +35,7 @@ public class ValidatorService {
         }
     }
 
-    public void validateWithoutCustomDelimiter(String str) {
+    private void validateWithoutCustomDelimiter(String str) {
         if (!Character.isDigit(str.charAt(0))) {
             throw new IllegalArgumentException("입력은 숫자로 시작해야 합니다.");
         }

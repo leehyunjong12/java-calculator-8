@@ -21,10 +21,10 @@ public class CalculatorService {
         }
         String numbersPart;
         if (str.startsWith("//") && str.contains("\\n")) {
-            validatorService.validate(str, true);
+            validatorService.validateInput(str, true);
             numbersPart = delimiterService.extractAndAddCustomDelimiter(str);
         } else {
-            validatorService.validate(str, false);
+            validatorService.validateInput(str, false);
             numbersPart = str;
         }
         String[] splitString = splitterService.splitByDelimiters(numbersPart);

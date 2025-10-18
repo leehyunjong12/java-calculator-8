@@ -18,7 +18,7 @@ public class ValidatorServiceTest {
     @DisplayName("앞뒤 공백 테스트")
     void validateBlank_1() {
         String input = " 123,456 ";
-        Assertions.assertThatThrownBy(() -> validatorService.validateBlank(input))
+        Assertions.assertThatThrownBy(() -> validatorService.validateInput(input,false))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("공백을 포함하고 있습니다.");
     }
@@ -27,7 +27,7 @@ public class ValidatorServiceTest {
     @DisplayName("가운데 공백 테스트")
     void validateBlank_2() {
         String input = "123 456";
-        Assertions.assertThatThrownBy(() -> validatorService.validateBlank(input))
+        Assertions.assertThatThrownBy(() -> validatorService.validateInput(input,false))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("공백을 포함하고 있습니다.");
     }
@@ -36,7 +36,7 @@ public class ValidatorServiceTest {
     @DisplayName("커스텀 구분자 크기가 1이 아닐 때 예외")
     void validateWithCustomDelimiter_1() {
         String input = "//$%\\n3$4$5";
-        Assertions.assertThatThrownBy(() -> validatorService.validateWithCustomDelimiter(input))
+        Assertions.assertThatThrownBy(() -> validatorService.validateInput(input,true))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("커스텀 구분자 크기가 1이 아닙니다.");
     }
@@ -45,7 +45,7 @@ public class ValidatorServiceTest {
     @DisplayName("커스텀 구분자가 .일 때 예외")
     void validateWithCustomDelimiter_2() {
         String input = "//.\\n3.4.5";
-        Assertions.assertThatThrownBy(() -> validatorService.validateWithCustomDelimiter(input))
+        Assertions.assertThatThrownBy(() -> validatorService.validateInput(input,true))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("\".\"은 커스텀 구분자로 사용할 수 없습니다.");
     }
@@ -54,7 +54,7 @@ public class ValidatorServiceTest {
     @DisplayName("커스텀 구분자가 숫자일 때 예외")
     void validateWithCustomDelimiter_3() {
         String input = "//8\\n3$4$5$";
-        Assertions.assertThatThrownBy(() -> validatorService.validateWithCustomDelimiter(input))
+        Assertions.assertThatThrownBy(() -> validatorService.validateInput(input,true))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("커스텀 구분자는 숫자가 될 수 없습니다.");
     }
@@ -63,7 +63,7 @@ public class ValidatorServiceTest {
     @DisplayName("커스텀 구분자가 없을때, 숫자로 시작하지 않으면 예외")
     void validateWithoutCustomDelimiter() {
         String input = "$3$4$5$";
-        Assertions.assertThatThrownBy(() -> validatorService.validateWithoutCustomDelimiter(input))
+        Assertions.assertThatThrownBy(() -> validatorService.validateInput(input,false))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("입력은 숫자로 시작해야 합니다.");
     }
