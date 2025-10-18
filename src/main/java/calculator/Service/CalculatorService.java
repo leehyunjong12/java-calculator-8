@@ -7,12 +7,15 @@ public class CalculatorService {
     DelimiterService delimiterService;
     SplitterService splitterService;
     NumberConverterService numberConverterService;
+    ArraySumService arraySumService;
+
     public CalculatorService(ValidatorService validatorService, DelimiterService delimiterService
-            , SplitterService splitterService, NumberConverterService numberConverterService) {
+            , SplitterService splitterService, NumberConverterService numberConverterService, ArraySumService arraySumService) {
         this.validatorService = validatorService;
         this.delimiterService = delimiterService;
         this.splitterService = splitterService;
         this.numberConverterService = numberConverterService;
+        this.arraySumService = arraySumService;
     }
 
     public String calculate(String str) {
@@ -31,6 +34,7 @@ public class CalculatorService {
         validatorService.validateStringArray(splitString);
         double[] splitDouble = numberConverterService.convertToNumberArray(splitString);
         validatorService.validateNumArray(splitDouble);
+        int sumResult = arraySumService.addDoubleArray(splitDouble);
         return null;
 
     }

@@ -13,6 +13,7 @@ public class CalculatorServiceTest {
     SplitterService splitterService;
     DelimiterModel delimiterModel;
     NumberConverterService numberConverterService;
+    ArraySumService adderService;
 
     @BeforeEach
     void setUp() {
@@ -21,8 +22,9 @@ public class CalculatorServiceTest {
         delimiterService = new DelimiterService(delimiterModel);
         splitterService = new SplitterService(delimiterModel);
         numberConverterService = new NumberConverterService();
+        adderService = new ArraySumService();
         calculatorService = new CalculatorService(validatorService, delimiterService
-                , splitterService,numberConverterService);
+                , splitterService, numberConverterService, adderService);
     }
 
     @Test

@@ -19,7 +19,7 @@ public class Config {
 
     public CalculatorService calculatorService() {
         return new CalculatorService(validatorService(), delimiterService()
-                , splitterService(),numberConverterService());
+                , splitterService(),numberConverterService(), arraySumService());
     }
 
     public ValidatorService validatorService() {
@@ -35,5 +35,8 @@ public class Config {
     }
     public NumberConverterService numberConverterService() {
         return new NumberConverterService();
+    }
+    public ArraySumService arraySumService(){
+        return new ArraySumService();
     }
 }
