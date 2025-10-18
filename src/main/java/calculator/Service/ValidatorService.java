@@ -41,7 +41,7 @@ public class ValidatorService {
         }
     }
 
-    public void validateArray(String[] arr) {
+    public void validateStringArray(String[] arr) {
         validateBlankInArray(arr);
         validateNonNumericInArray(arr);
     }

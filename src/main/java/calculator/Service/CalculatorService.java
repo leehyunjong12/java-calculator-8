@@ -28,7 +28,7 @@ public class CalculatorService {
             numbersPart = str;
         }
         String[] splitString = splitterService.splitByDelimiters(numbersPart);
-        validatorService.validateArray(splitString);
+        validatorService.validateStringArray(splitString);
         double[] splitDouble = numberConverterService.convertToNumberArray(splitString);
 
         return null;

@@ -71,7 +71,7 @@ public class ValidatorServiceTest {
     @DisplayName("분리한 문자열에 비어있는 것이 있으면 예외")
     void validateBlankInArray(){
         String[] splitInput = {"4", "6", "8","", "10", "4"};
-        Assertions.assertThatThrownBy(() -> validatorService.validateArray(splitInput))
+        Assertions.assertThatThrownBy(() -> validatorService.validateStringArray(splitInput))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("비어있는 문자열이 있습니다.");
     }
@@ -79,7 +79,7 @@ public class ValidatorServiceTest {
     @DisplayName("분리한 문자열에 숫자가 아닌 것이 있으면 예외")
     void validateNonNumericInArray(){
         String[] splitInput = {"4", "b", "c","a", "10", "4"};
-        Assertions.assertThatThrownBy(() -> validatorService.validateArray(splitInput))
+        Assertions.assertThatThrownBy(() -> validatorService.validateStringArray(splitInput))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("숫자가 아닌 값을 입력하셨습니다.");
     }
