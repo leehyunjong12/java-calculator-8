@@ -40,13 +40,26 @@ public class ValidatorService {
             throw new IllegalArgumentException("입력은 숫자로 시작해야 합니다.");
         }
     }
-    public void validateArray(String[] arr){
+
+    public void validateArray(String[] arr) {
         validateBlankInArray(arr);
+        validateNonNumericInArray(arr);
     }
+
     private void validateBlankInArray(String[] arr) {
         for (String s : arr) {
             if (s.isEmpty()) {
                 throw new IllegalArgumentException("비어있는 문자열이 있습니다.");
+            }
+        }
+    }
+
+    private void validateNonNumericInArray(String[] arr) {
+        for (String s : arr) {
+            try {
+                Double.parseDouble(s);
+            } catch (NumberFormatException e) {
+                throw new IllegalArgumentException("숫자가 아닌 값을 입력하셨습니다.");
             }
         }
     }
