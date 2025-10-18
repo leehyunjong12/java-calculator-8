@@ -1,5 +1,6 @@
 package calculator.Service;
 
+import calculator.Model.DelimiterModel;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -8,11 +9,13 @@ import org.junit.jupiter.api.Test;
 public class CalculatorServiceTest {
     CalculatorService calculatorService;
     ValidatorService validatorService;
+    DelimiterService delimiterService;
 
     @BeforeEach
     void setUp() {
         validatorService = new ValidatorService();
-        calculatorService = new CalculatorService(validatorService);
+        delimiterService = new DelimiterService(new DelimiterModel());
+        calculatorService = new CalculatorService(validatorService, delimiterService);
     }
 
     @Test
