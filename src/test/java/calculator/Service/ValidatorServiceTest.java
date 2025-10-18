@@ -31,4 +31,30 @@ public class ValidatorServiceTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("공백을 포함하고 있습니다.");
     }
+
+    @Test
+    @DisplayName("커스텀 구분자 크기가 1이 아닐 때 예외")
+    void validateWithCustomDelimiter_1(){
+        String input = "//$%\n3$4$5";
+        Assertions.assertThatThrownBy(() -> validatorService.validateWithCustomDelimiter(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("커스텀 구분자 크기가 1이 아닙니다.");
+    }
+
+    @Test
+    @DisplayName("커스텀 구분자가 .일 때 예외")
+    void validateWithCustomDelimiter_2(){
+        String input = "//.\n3.4.5";
+        Assertions.assertThatThrownBy(() -> validatorService.validateWithCustomDelimiter(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("\".\"은 커스텀 구분자로 사용할 수 없습니다.");
+    }
+    @Test
+    @DisplayName("커스텀 구분자가 숫자일 때 예외")
+    void validateWithCustomDelimiter_3(){
+        String input = "//8\n3$4$5$";
+        Assertions.assertThatThrownBy(() -> validatorService.validateWithCustomDelimiter(input))
+                .isInstanceOf(IllegalArgumentException.class)
+                .hasMessage("커스텀 구분자는 숫자가 될 수 없습니다.");
+    }
 }
