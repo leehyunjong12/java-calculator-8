@@ -18,9 +18,9 @@ public class CalculatorService {
         this.arraySumService = arraySumService;
     }
 
-    public String calculate(String str) {
+    public int calculate(String str) {
         if (str.isEmpty()) {
-            return "0";
+            return 0;
         }
         String numbersPart;
         if (str.startsWith("//") && str.contains("\\n")) {
@@ -34,8 +34,7 @@ public class CalculatorService {
         validatorService.validateStringArray(splitString);
         double[] splitDouble = numberConverterService.convertToNumberArray(splitString);
         validatorService.validateNumArray(splitDouble);
-        int sumResult = arraySumService.addDoubleArray(splitDouble);
-        return null;
+        return arraySumService.addDoubleArray(splitDouble);
 
     }
 }
