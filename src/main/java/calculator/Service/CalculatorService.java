@@ -1,14 +1,18 @@
 package calculator.Service;
 
 
+import java.util.List;
+
 // 전체 흐름 조합 (Facade 역할)
 public class CalculatorService {
     ValidatorService validatorService;
     DelimiterService delimiterService;
+    SplitterService splitterService;
 
-    public CalculatorService(ValidatorService validatorService, DelimiterService delimiterService) {
+    public CalculatorService(ValidatorService validatorService, DelimiterService delimiterService, SplitterService splitterService) {
         this.validatorService = validatorService;
         this.delimiterService = delimiterService;
+        this.splitterService = splitterService;
     }
 
     public String calculate(String str) {
@@ -23,6 +27,7 @@ public class CalculatorService {
             validatorService.validate(str, false);
             numbersPart = str;
         }
+        String[] splitString = splitterService.splitByDelimiters(numbersPart);
         return null;
     }
 }

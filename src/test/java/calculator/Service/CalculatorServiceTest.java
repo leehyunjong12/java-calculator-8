@@ -10,12 +10,16 @@ public class CalculatorServiceTest {
     CalculatorService calculatorService;
     ValidatorService validatorService;
     DelimiterService delimiterService;
+    SplitterService splitterService;
+    DelimiterModel delimiterModel;
 
     @BeforeEach
     void setUp() {
         validatorService = new ValidatorService();
-        delimiterService = new DelimiterService(new DelimiterModel());
-        calculatorService = new CalculatorService(validatorService, delimiterService);
+        delimiterModel = new DelimiterModel();
+        delimiterService = new DelimiterService(delimiterModel);
+        splitterService = new SplitterService(delimiterModel);
+        calculatorService = new CalculatorService(validatorService, delimiterService, splitterService);
     }
 
     @Test
