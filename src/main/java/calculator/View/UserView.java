@@ -6,9 +6,6 @@ public class UserView {
         System.out.print("덧셈할 문자열을 입력하세요: ");
         return Console.readLine();
     }
-    public void printError(String message) {
-        System.out.println("[ERROR] " + message);
-    }
     public void displayResult(int result){
         System.out.println("결과 : "+result);
     }
