@@ -11,9 +11,11 @@ public class DelimiterModel {
         delimiters.add(",");
         delimiters.add(":");
     }
+
     public List<String> getAllDelimiters() {
         return delimiters;
     }
+
     public void addCustomDelimiter(String delimiter) {
         if (!delimiters.contains(delimiter)) {
             delimiters.add(delimiter);

@@ -4,8 +4,7 @@ import calculator.Model.DelimiterModel;
 
 public class DelimiterService {
     DelimiterModel delimiterModel;
-
-
+    
     public DelimiterService(DelimiterModel delimiterModel) {
         this.delimiterModel = delimiterModel;
     }

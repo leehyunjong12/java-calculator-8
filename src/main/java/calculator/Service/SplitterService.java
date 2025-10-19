@@ -1,9 +1,6 @@
 package calculator.Service;
 
 import calculator.Model.DelimiterModel;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Pattern;
 

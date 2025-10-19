@@ -23,7 +23,7 @@ public class DelimiterServiceTest {
         delimiterService.extractAndAddCustomDelimiter(input);
         Assertions.assertThat(delimiterModel.getAllDelimiters()).contains(";");
     }
-
+    
     @Test
     @DisplayName("커스텀 구분자로 기본 구분자가 들어왔을 때 예외 처리")
     void addCustomDelimiter_2() {
@@ -32,6 +32,7 @@ public class DelimiterServiceTest {
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("이미 존재하는 구분자 입니다.");
     }
+
     @Test
     @DisplayName("앞 부분을 제외한 숫자 파트만 잘 리턴하는지 확인")
     void addCustomDelimiter_3() {

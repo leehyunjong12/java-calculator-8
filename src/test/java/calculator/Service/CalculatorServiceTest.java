@@ -26,7 +26,7 @@ public class CalculatorServiceTest {
         calculatorService = new CalculatorService(validatorService, delimiterService
                 , splitterService, numberConverterService, adderService);
     }
-
+    
     @Test
     @DisplayName("입력값이 없을때 0 반환")
     void Calculate_zero_return() {

@@ -10,13 +10,15 @@ public class CalculatorService {
     ArraySumService arraySumService;
 
     public CalculatorService(ValidatorService validatorService, DelimiterService delimiterService
-            , SplitterService splitterService, NumberConverterService numberConverterService, ArraySumService arraySumService) {
+            , SplitterService splitterService, NumberConverterService numberConverterService,
+                             ArraySumService arraySumService) {
         this.validatorService = validatorService;
         this.delimiterService = delimiterService;
         this.splitterService = splitterService;
         this.numberConverterService = numberConverterService;
         this.arraySumService = arraySumService;
     }
+
 
     public int calculate(String str) {
         if (str.isEmpty()) {

@@ -1,6 +1,7 @@
 package calculator.Service;
 
 public class ValidatorService {
+
     public void validateInput(String str, Boolean hasCustomDelimiter) {
         validateBlank(str);
         if (hasCustomDelimiter) {

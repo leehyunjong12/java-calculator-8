@@ -13,12 +13,13 @@ public class DelimiterModelTest {
     void setUp() {
         model = new DelimiterModel();
     }
+
     @Test
     @DisplayName("기본 구분자가 포함되어 있는지 확인")
     void testDefaultDelimiters() {
         Assertions.assertThat(model.getAllDelimiters()).contains(",", ":");
     }
-
+    
     @Test
     @DisplayName("커스텀 구분자 추가")
     void testAddCustomDelimiter() {

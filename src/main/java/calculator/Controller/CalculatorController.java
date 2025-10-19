@@ -12,9 +12,10 @@ public class CalculatorController {
         this.calculatorService = calculatorService;
     }
 
+
     public void run() {
-            String InStr = userView.readUserInput();
-            int result = calculatorService.calculate(InStr);
-            userView.displayResult(result);
+        String InStr = userView.readUserInput();
+        int result = calculatorService.calculate(InStr);
+        userView.displayResult(result);
     }
 }
